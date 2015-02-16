@@ -1,16 +1,26 @@
-var express = require('express');
+var express = require('express'),
+	mustache = require('mustache-express');
 
 function init(options)
 {
 	var app = express(); // the main app
 	var admin = express(); // the admin app
 
+	app.engine('mustache', mustache());
+	admin.engine('mustache', mustache());
+
+	app.set('view engine', 'mustache');
+	admin.set('view engine', 'mustache');
+	
+	app.set('views', __dirname+'/../client/views');
+	admin.set('views', __dirname+'/../client/views');
+
 	admin.get('/', function(req, res){
-		res.send('Admin Homepage');
+		res.render('admin-index');
 	});
 
 	app.get('/', function(req, res){
-		res.send('Clique Homepage');
+		res.render('index');
 	});
 
 	app.use('/admin', admin);

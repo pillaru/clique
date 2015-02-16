@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/pillaru/clique",
   "dependencies": {
-    "express": "~4.11.2"
+    "express": "~4.11.2",
+    "mustache-express": "~1.2.1"
   }
 }
