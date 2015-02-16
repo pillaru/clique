@@ -1,0 +1,33 @@
+{
+  "name": "clique",
+  "version": "0.0.0",
+  "description": "engine to help manage communities",
+  "main": "./core/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pillaru/clique.git"
+  },
+  "keywords": [
+    "engine",
+    "community",
+    "clique",
+    "society",
+    "association",
+    "news",
+    "announcement",
+    "event",
+    "member"
+  ],
+  "author": "pillaru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pillaru/clique/issues"
+  },
+  "homepage": "https://github.com/pillaru/clique",
+  "dependencies": {
+    "express": "~4.11.2"
+  }
+}
