@@ -5,21 +5,25 @@ var express = require('express'),
 
 module.exports = function(db) {
 
-	var app = express();
+	var publicApp = express(),
+		adminApp = express();
 
-	app.engine('mustache', mustache());
+	publicApp.engine('mustache', mustache());
+	adminApp.engine('mustache', mustache());
 
-	app.set('view engine', 'mustache');
+	publicApp.set('view engine', 'mustache');
+	adminApp.set('view engine', 'mustache');
 	
-	app.set('views', './core/server/views');
+	publicApp.set('views', './core/server/views');
+	adminApp.set('views', './core/server/views');
 
-	app.route('/').get(function(req, res, next) {
-		res.render('index');
-	});
+	publicApp.use(express.static('./core/public'));
+	adminApp.use(express.static('./core/public'));
 
-	app.route('/admin').get(function(req, res, next) {
-		res.render('admin-index');
-	});
+	adminApp.use(require('./routes.js').admin());
+	publicApp.use('/admin', adminApp);
 
-	return app;
+	publicApp.use(require('./routes.js').frontEnd());
+
+	return publicApp;
 };

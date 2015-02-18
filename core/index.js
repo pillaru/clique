@@ -9,7 +9,6 @@ var config = require('./config/config'),
  * Please note that the order of loading is important.
  */
 
-
 var db = mongoose.connect(config.db, function(err){
 	if(err) {
 		console.error(chalk.red('Could not connect to MongoDB!'));
