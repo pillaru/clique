@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('admin').controller('SetupController', ['$scope',
+angular.module('clique').controller('SetupController', ['$scope',
 	function($scope) {
 		// This provides Authentication context.
 	}
