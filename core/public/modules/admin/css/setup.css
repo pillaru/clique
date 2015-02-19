@@ -1,0 +1,28 @@
+body {
+	font-family: 'Lato', sans-serif;
+	font-size: 10pt;
+	background-color: #333;
+}
+
+form {
+	width: 25%;
+	margin: 10em auto;
+	background-color: #666;
+	padding: 2em;
+}
+
+form label {
+	display: none;
+}
+
+form input {
+	font-family: 'Lato', sans-serif;
+	font-size: 11pt;
+	padding: 0.4em;
+	width: 100%;
+	margin: 0.4em 0;
+}
+
+form input[type='submit'] {
+	width: auto;
+}
