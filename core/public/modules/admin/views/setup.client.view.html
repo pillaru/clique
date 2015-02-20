@@ -3,49 +3,51 @@
 	<form data-ng-submit="setup()" name="setupForm" novalidate>
 		<h1>clique</h1>
 		<div class="form-group">
-			<div ng-show="setupForm.$submitted || setupForm.cliqueName.$touched">
-				<div ng-show="setupForm.cliqueName.$error.required" class="text-danger">This is a required field</div>
-			</div>
 			<label for="clique-name" class="control-label">Clique Name</label>
 			<input type="text" class="form-control" id="clique-name" name="cliqueName" data-ng-model="cliqueName" placeholder="Clique Name" required />
+			<div data-ng-show="setupForm.$submitted || setupForm.cliqueName.$touched">
+				<div data-ng-show="setupForm.cliqueName.$error.required" class="text-danger">This is a required field.</div>
+			</div>
 		</div>
 		<div class="form-group">
-			<div ng-show="setupForm.$submitted || setupForm.firstName.$touched">
-				<div ng-show="setupForm.firstName.$error.required" class="text-danger">This is a required field</div>
-			</div>
 			<label for="first-name" class="control-label">First Name</label>
-			<input type="text" class="form-control" id="first-name" name="firstName" data-ng-model="firstName" placeholder="First Name" required />		
+			<input type="text" class="form-control" id="first-name" name="firstName" data-ng-model="firstName" placeholder="First Name" required />
+			<div data-ng-show="setupForm.$submitted || setupForm.firstName.$touched">
+				<div data-ng-show="setupForm.firstName.$error.required" class="text-danger">This is a required field.</div>
+			</div>
 		</div>
 		<div class="form-group">
-			<div ng-show="setupForm.$submitted || setupForm.lastName.$touched">
-				<div ng-show="setupForm.lastName.$error.required" class="text-danger">This is a required field</div>
-			</div>
 			<label for="last-name" class="control-label">Last Name</label>
 			<input type="text" class="form-control" id="last-name" name="lastName" data-ng-model="lastName" placeholder="Last Name" required />
+			<div data-ng-show="setupForm.$submitted || setupForm.lastName.$touched">
+				<div data-ng-show="setupForm.lastName.$error.required" class="text-danger">This is a required field.</div>
+			</div>
 		</div>
 		<div class="form-group">
-			<div ng-show="setupForm.$submitted || setupForm.email.$touched">
-				<div ng-show="setupForm.email.$error.required" class="text-danger">This is a required field</div>
-			</div>
 			<label for="email" class="control-label">Email</label>
 			<input type="email" name="email" data-ng-model="email" id="email" placeholder="Email" class="form-control" required />
+			<div ng-show="setupForm.$submitted || setupForm.email.$touched">
+				<div data-ng-show="setupForm.email.$error.required" class="text-danger">This is a required field.</div>
+				<div data-ng-show="setupForm.email.$error.email" class="text-danger">Invalid email address.</div>
+			</div>
 		</div>
 		<div class="form-group">
-			<div ng-show="setupForm.$submitted || setupForm.password.$touched">
-				<div ng-show="setupForm.password.$error.required" class="text-danger">This is a required field</div>
-			</div>
 			<label for="password" class="control-label">Password</label>
-			<input type="password" name="password" data-ng-model="password" id="password" placeholder="Password" class="form-control" required />
-		</div>
-		<div class="form-group">
-			<div ng-show="setupForm.$submitted || setupForm.confirmPassword.$touched">
-				<div ng-show="setupForm.confirmPassword.$error.required" class="text-danger">This is a required field</div>
+			<input type="password" name="password" data-ng-model="password" id="password" placeholder="Password" class="form-control" data-ng-minlength="5" required />
+			<div data-ng-show="setupForm.$submitted || setupForm.password.$touched">
+				<div data-ng-show="setupForm.password.$error.required" class="text-danger">This is a required field.</div>
+				<div data-ng-show="setupForm.password.$error.minlength" class="text-danger">Password must be atleast 5 characters long.</div>
 			</div>
-			<label for="confirm-password" class="control-label">Confirm Password</label>
-			<input type="password" name="confirmPassword" data-ng-model="confirmPassword" id="confirm-password" placeholder="Confirm Password" class="form-control" required />
 		</div>
 		<div class="form-group">
-			<input class="btn btn-primary" type="submit" name="submit" value="Save" />
+			<label for="confirm-password" class="control-label">Confirm Password</label>
+			<input type="password" name="confirmPassword" data-ng-model="confirmPassword" id="confirm-password" placeholder="Confirm Password" class="form-control" required data-compare-to="password" />
+			<div data-ng-show="setupForm.$submitted || setupForm.confirmPassword.$touched">
+				<div data-ng-show="setupForm.confirmPassword.$error.compareTo" class="text-danger">Passwords doesn't match.</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<input class="btn btn-primary" type="submit" name="submit" value="Save" data-ng-disabled="setupForm.$invalid" />
 		</div>
 	</form>
 
