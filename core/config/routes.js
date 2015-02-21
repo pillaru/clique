@@ -41,7 +41,7 @@ module.exports.frontEnd = function(){
 	var router = express.Router();
 
 	router.get('*', function(req, res) {
-		res.redirect(301, '/admin/setup');
+		res.render('index');
 	});
 
 	return router;
