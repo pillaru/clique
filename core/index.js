@@ -16,7 +16,7 @@ var db = mongoose.connect(config.db, function(err){
 	}
 });
 
-var app = require('./config/express.js')(db);
+var app = require('./config/express.js')();
 
 // Start the app by listening on <port>
 app.listen(config.port);
